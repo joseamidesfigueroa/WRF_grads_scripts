@@ -1,0 +1,108 @@
+#=======================================================================================
+#=======================================================================================
+#========================= LLUVIA ACUMULADA EN 24 HORAS  ===============================
+#=======================================================================================
+#=======================================================================================
+#Abre el ctl asociado.
+'open /home/arw/trabajo/grads/salida.ctl'
+
+#Script PARA PRECIPITACION TOTAL ACUMULADA EN 24 HORAS
+'c'
+#========================================================
+'set xsize 1400 1050'
+'set lat 13 19'
+'set lon 267 272.7'
+'set mpdset nmap'
+'set display color white'
+'set gxout shaded'
+'set t 8'
+'t=8'
+'q time'
+x1=sublin(result,1)
+ta=subwrd(x1,3)
+'tt14=apcpsfc'
+'set t 32'
+'t=32'
+'q time'
+x1=sublin(result,1)
+t1=subwrd(x1,3)
+t2=subwrd(x1,5)
+'tt38=apcpsfc'
+'tt24=tt38-tt14'
+'color -levs 0.1 0.5 1 2 3 5 7 10 15 20 25 30 35 40 45 50 60 70 80 90 100 125 150 200 300 -kind snow->paleturquoise->skyblue->deepskyblue->navy->forestgreen->limegreen->yellow->orange->wheat->plum->palevioletred->red->darkmagenta->darkviolet->orchid->lightpink->lavender->darkgray'
+'d sum(apcpsfc,t=8,t=32)'
+'cbar'
+'set line 1'
+'draw shp GTM_adm1.shp'
+'draw shp BLZ_adm1.shp'
+'draw shp HND_adm0.shp'
+'draw shp NIC_adm0.shp'
+'draw shp SLV_adm0.shp'
+'draw shp BLZ_adm0.shp'
+'draw shp MEX_adm0.shp'
+'draw title Precipitacion Total Acumulada en 24 horas (mm)\Desde 'ta' hasta 't1' '
+#'draw string 4.5 0.2 WRF '
+'printim /home/arw/trabajo/grads_temp_01/24_GUA.png x1920 y1440'
+#*******************************************************
+#Script PARA PRECIPITACION TOTAL ACUMULADA EN 48 HORAS
+'c'
+'set t 32'
+'t=32'
+'q time'
+x1=sublin(result,1)
+ta=subwrd(x1,3)
+'tt38=apcpsfc'
+'set t 56'
+'t=56'
+'q time'
+x1=sublin(result,1)
+t1=subwrd(x1,3)
+t2=subwrd(x1,5)
+'tt62=apcpsfc'
+'tt48=tt62-tt24'
+'color -levs 0.1 0.5 1 2 3 5 7 10 15 20 25 30 35 40 45 50 60 70 80 90 100 125 150 200 300 -kind snow->paleturquoise->skyblue->deepskyblue->navy->forestgreen->limegreen->yellow->orange->wheat->plum->palevioletred->red->darkmagenta->darkviolet->orchid->lightpink->lavender->darkgray'
+'d sum(apcpsfc,t=32,t=56)'
+'cbar'
+'set line 1'
+'draw shp GTM_adm1.shp'
+'draw shp BLZ_adm1.shp'
+'draw shp HND_adm0.shp'
+'draw shp NIC_adm0.shp'
+'draw shp SLV_adm0.shp'
+'draw shp BLZ_adm0.shp'
+'draw shp MEX_adm0.shp'
+'draw title Precipitacion Total Acumulada en 24 horas (mm)\Desde 'ta' hasta 't1' '
+#'draw string 4.5 0.2 WRF '
+'printim /home/arw/trabajo/grads_temp_01/48_GUA.png x1920 y1440'
+#*******************************************************
+#*******************************************************
+#Script PARA PRECIPITACION TOTAL ACUMULADA EN 72 HORAS
+'c'
+'set t 56'
+'t=56'
+'q time'
+x1=sublin(result,1)
+ta=subwrd(x1,3)
+'set t 80'
+'t=80'
+'q time'
+x1=sublin(result,1)
+t1=subwrd(x1,3)
+t2=subwrd(x1,5)
+'tt72=apcpsfc'
+'color -levs 0.1 0.5 1 2 3 5 7 10 15 20 25 30 35 40 45 50 60 70 80 90 100 125 150 200 300 -kind snow->paleturquoise->skyblue->deepskyblue->navy->forestgreen->limegreen->yellow->orange->wheat->plum->palevioletred->red->darkmagenta->darkviolet->orchid->lightpink->lavender->darkgray'
+'d sum(apcpsfc,t=56,t=80)'
+'cbar'
+'set line 1'
+'draw shp GTM_adm1.shp'
+'draw shp BLZ_adm1.shp'
+'draw shp HND_adm0.shp'
+'draw shp NIC_adm0.shp'
+'draw shp SLV_adm0.shp'
+'draw shp BLZ_adm0.shp'
+'draw shp MEX_adm0.shp'
+'draw title Precipitacion Total Acumulada en 24 horas (mm)\Desde 'ta' hasta 't1' '
+#'draw string 4.5 0.2 WRF '
+'printim /home/arw/trabajo/grads_temp_01/72_GUA.png x1920 y1440'
+#*******************************************************
+'quit'
